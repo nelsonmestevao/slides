@@ -1,8 +1,8 @@
-title: Estevão Slides
+title: Nelson Estevão
 description: All my presentations in one place.
 
 baseurl:
-url: "slides.estevao.xyz"
+url: "https://slides.estevao.xyz"
 permalink: /:title/
 
 compress_html:
@@ -16,7 +16,7 @@ compress_html:
   startings: []
 
 
-analytics: UA-83979019-1
+analytics:
 
 color-1: '#e74c3c'
 color-2: '##1abc9c'

@@ -6,45 +6,51 @@ layout: compress
    <head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		<title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+		<title>{% if page.title %}{{ page.title | escape }}{% else %}Slides • {{ site.title | escape }}{% endif %}</title>
     
         <meta name="description" content="{{ site.description }}">
          <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
 
 		<link rel="stylesheet" href="{{site.baseurl}}/css/home.css">
         
-		    <!-- Favicon -->
-<link rel="shortcut icon" type="image/x-icon" href="{{site.baseurl}}/favicon.ico" />
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+        <link rel="manifest" href="/images/favicon/site.webmanifest">
+        <link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#ffc40d">
+        <link rel="shortcut icon" href="/images/favicon/favicon.ico">
+        <meta name="msapplication-TileColor" content="#ffc40d">
+        <meta name="msapplication-config" content="/images/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
 	</head>
    
     <body>
-       <header>
-           <a href="{{site.baseurl}}"><div class="brand"><img class="logo" src="{{site.baseurl}}/images/webjeda-slides.svg" alt="webjeda-slides">
-           <h1 class="headline">{{site.title}}</h1></div></a>
-       </header>
-       
+       <!-- <header>
+           <a href="{{site.baseurl}}">
+               <div class="brand">
+                    <h1 class="headline">{{site.title}}</h1>
+                </div>
+            </a>
+       </header> -->
 
-       
-       
         <div class="pack">
  
- <p class="head-text">What if you can manage all your presentations from one place?!</p>
+            <p class="head-text"></p>
  
-{% for post in site.posts %}                              
-                               
-    <a target="_blank" class="link" href="{{site.baseurl}}{{post.url}}"> 
-       
-        <div class="card" style="background-color: {% cycle '#e74c3c', '#1abc9c', '#e67e22', '#34495e', '#f1c40f', '#3498db', '#2ecc71', '#9b59b6' %}" >
-           <div class="card-number">
-               {{forloop.rindex}}
-           </div>
-            <div class="card-title">
-                {{ post.title | truncate: 13 }}
-            </div>
-        </div>
-    </a>
-          
-{% endfor %}
+            {% for post in site.posts %}
+                <a target="_blank" class="link" href="{{site.baseurl}}{{post.url}}"> 
+                
+                    <div class="card" style="background-color: {% cycle '#e74c3c', '#1abc9c', '#e67e22', '#34495e', '#f1c40f', '#3498db', '#2ecc71', '#9b59b6' %}" >
+                    <div class="card-number">
+                        {{forloop.rindex}}
+                    </div>
+                        <div class="card-title">
+                            {{ post.title | truncate: 13 }}
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
         </div>
          {% include analytics.html %}
     </body>
