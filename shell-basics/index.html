@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="keywords" content="bash, CeSIUM">
+  <title>UNIX Shell, the best IDE</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <link rel="stylesheet" href="js/revealjs/css/reveal.css">
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="css/custom.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'js/revealjs/css/print/pdf.css' : 'js/revealjs/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="js/revealjs/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h2 class="title">UNIX Shell, the best IDE</h2>
+<div class="authors">
+<div class="author">
+  <p class="author">herulume</p>
+  <div class="social">
+    <a href="https://github.com/herulume"><i class="fab fa-github"></i></a>
+    <a href="https://twitter.com/herulume"><i class="fab fa-twitter"></i></a>
+  </div>
+</div>
+<div class="author">
+  <p class="author">Nelson Estevão</p>
+  <div class="social">
+    <a href="https://github.com/nelsonmestevao"><i class="fab fa-github"></i></a>
+    <a href="https://twitter.com/nelsonmestevao"><i class="fab fa-twitter"></i></a>
+  </div>
+</div>
+</div>
+  <p class="date">October 15th, 2018</p>
+</section>
+
+<section><section id="what-is-an-ide" class="title-slide slide level1"><h1>What is an IDE?</h1></section><section id="integrated-development-environment" class="slide level2">
+<h2>Integrated Development Environment</h2>
+<ul>
+<li class="fragment">Source code editor</li>
+<li class="fragment">Code completion</li>
+<li class="fragment">Build automation tools</li>
+<li class="fragment">Version control system(s)</li>
+<li class="fragment">Compiler / compiler integration</li>
+<li class="fragment">Interpreter</li>
+<li class="fragment">The two above</li>
+<li class="fragment">A dragon</li>
+<li class="fragment">Mostly bad code</li>
+<li class="fragment">Not needed unless coding Java</li>
+</ul>
+</section><section id="goal" class="slide level2">
+<h2>Goal</h2>
+<ul>
+<li class="fragment">To get you used to unix based systems</li>
+</ul>
+</section><section id="its-hard" class="slide level2">
+<h2>IT’S HARD!</h2>
+<ul>
+<li class="fragment">Used to GUIs</li>
+<li class="fragment">Like gaming</li>
+<li class="fragment">Can’t read error messages</li>
+</ul>
+<aside class="notes">
+<p>Gathers all tools in the same place GUI apps don’t communicate well with each other (no commom interface)</p>
+<p>Unix tools share a commom interface (stream of text and files)</p>
+<p>Vim vs Emacs (never needing to leave)</p>
+IDEs are good, unix just happens to be the best
+</aside>
+</section></section>
+<section><section id="navigation-commands" class="title-slide slide level1"><h1>Navigation Commands</h1></section><section id="print-working-directory" class="slide level2">
+<h2>Print Working Directory</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1">$ <span class="bu">pwd</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="ex">/home/username</span></a></code></pre></div>
+</section><section id="list" class="slide level2">
+<h2>List</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><strong><code>ls</code></strong></td>
+<td><code>-a</code></td>
+<td>all files</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>-l</code></td>
+<td>long format</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>-t</code></td>
+<td>by time</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>-X</code></td>
+<td>by extension</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>-S</code></td>
+<td>by size</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+Talk about <code>man</code> command.
+</aside>
+</section><section id="change-directory" class="slide level2">
+<h2>Change Directory</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><strong><code>cd PATH</code></strong></td>
+<td><code>.</code></td>
+<td>current DIR</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>..</code></td>
+<td>parent DIR</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>~</code></td>
+<td>home DIR</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+relative paths vs absolute paths
+</aside>
+</section><section id="relative-path-vs-absolute-path" class="slide level2">
+<h2>Relative path vs absolute path</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="bu">cd</span> /home/username/Downloads</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" data-line-number="1">$ <span class="bu">pwd</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="ex">/home/username/</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">$ <span class="fu">ls</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="ex">Desktop/</span> Downloads/ (...)</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">$ <span class="bu">cd</span> Downloads</a></code></pre></div>
+</section></section>
+<section><section id="create-your-own" class="title-slide slide level1"><h1>Create your own</h1></section><section id="make-directory" class="slide level2">
+<h2>Make Directory</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><strong><code>mkdir</code></strong></td>
+<td><code>-p</code></td>
+<td>create parents</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>-v</code></td>
+<td>verbose</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" data-line-number="1">$ <span class="fu">mkdir</span> [OPT] DIR</a></code></pre></div>
+</section><section id="create-empty-file" class="slide level2">
+<h2>Create Empty File</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" data-line-number="1">$ <span class="fu">touch</span> FILE</a></code></pre></div>
+<aside class="notes">
+If the FILE already exists, <code>touch</code> will update the time stamp.
+</aside>
+</section><section id="displayview-files" class="slide level2">
+<h2>Display/View files</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" data-line-number="1">$ <span class="fu">cat</span> [OPT] [FILES]</a></code></pre></div>
+<table>
+<tbody>
+<tr class="odd">
+<td><code>-l</code></td>
+<td>number the output lines</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" data-line-number="1">$ <span class="fu">less</span> [OPT] [FILES]</a></code></pre></div>
+<table>
+<tbody>
+<tr class="odd">
+<td><code>-N</code></td>
+<td>number the output lines</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<p>If you give multiple files to the <code>cat</code> command, you can then concatenate them.</p>
+You can mention <code>head</code> and <code>tail</code>.
+</aside>
+</section><section id="less-navigation" class="slide level2">
+<h2>LESS, navigation</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Key</th>
+<th style="text-align: center;">COMMAND</th>
+<th style="text-align: center;">Key</th>
+<th style="text-align: center;">COMMAND</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><code>Space</code></td>
+<td style="text-align: center;"><em>NEXT PAGE</em></td>
+<td style="text-align: center;"><code>/&lt;text&gt;</code></td>
+<td style="text-align: center;"><em>FOWARD SEARCH FOR &lt;<em>text</em>&gt;</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>b</code></td>
+<td style="text-align: center;"><em>PREVIOUS PAGE</em></td>
+<td style="text-align: center;"><code>?&lt;text&gt;</code></td>
+<td style="text-align: center;"><em>BACKWARD SEARCH FOR &lt;<em>text</em>&gt;</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>j</code></td>
+<td style="text-align: center;"><em>NEXT LINE</em></td>
+<td style="text-align: center;"><code>n</code></td>
+<td style="text-align: center;"><em>NEXT SEARCH MATCH</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>k</code></td>
+<td style="text-align: center;"><em>PREVIOUS LINE</em></td>
+<td style="text-align: center;"><code>N</code></td>
+<td style="text-align: center;"><em>PREVIOUS SEARCH MATCH</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>g</code></td>
+<td style="text-align: center;"><em>FIRST LINE</em></td>
+<td style="text-align: center;"><code>=</code></td>
+<td style="text-align: center;"><em>FILE INFORMATION</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>G</code></td>
+<td style="text-align: center;"><em>LAST LINE</em></td>
+<td style="text-align: center;"><code>h</code></td>
+<td style="text-align: center;"><em>HELP</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>&lt;n&gt;G</code></td>
+<td style="text-align: center;"><em>LINE &lt;<em>n</em>&gt;</em></td>
+<td style="text-align: center;"><code>q</code></td>
+<td style="text-align: center;"><em>QUIT</em></td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+Mention <code>wc</code> and use it with <code>man</code>.
+</aside>
+</section><section id="copy-files-and-directories" class="slide level2">
+<h2>Copy files and directories</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" data-line-number="1">$ <span class="fu">cp</span> [OPT] FROM TO</a></code></pre></div>
+<table>
+<tbody>
+<tr class="odd">
+<td><code>-r</code></td>
+<td>copy directories recursively</td>
+</tr>
+</tbody>
+</table>
+</section><section id="move-or-rename-files-and-directories" class="slide level2">
+<h2>Move (or rename) files and directories</h2>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb9-1" data-line-number="1">$ <span class="fu">mv</span> FROM TO</a></code></pre></div>
+</section><section id="remove-a-file" class="slide level2">
+<h2>Remove a file</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><strong><code>rm</code></strong></td>
+<td><code>-r</code></td>
+<td>recursively remove directories</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>-f</code></td>
+<td>force</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb10-1" data-line-number="1">$ <span class="fu">rm</span> [OPT] FILE</a></code></pre></div>
+</section><section id="remove-empty-directories" class="slide level2">
+<h2>Remove empty directories</h2>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb11-1" data-line-number="1">$ <span class="fu">rmdir</span> [OPT] DIR</a></code></pre></div>
+<table>
+<tbody>
+<tr class="odd">
+<td><code>-p</code></td>
+<td>also remove parents</td>
+</tr>
+</tbody>
+</table>
+</section></section>
+<section><section id="find-stuff" class="title-slide slide level1"><h1>Find stuff</h1></section><section id="search-for-files-in-a-directory-hierarchy" class="slide level2">
+<h2>Search for files in a directory hierarchy</h2>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb12-1" data-line-number="1">$ <span class="fu">find</span> [OPT] FILE</a></code></pre></div>
+<table>
+<tbody>
+<tr class="odd">
+<td><code>-name</code></td>
+<td>Find by name</td>
+</tr>
+<tr class="even">
+<td><code>-size</code></td>
+<td>Find by size</td>
+</tr>
+<tr class="odd">
+<td><code>-iname</code></td>
+<td>Case insensitive mode</td>
+</tr>
+</tbody>
+</table>
+</section><section id="print-lines-matching-a-pattern" class="slide level2">
+<h2>Print Lines Matching a Pattern</h2>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb13-1" data-line-number="1">$ <span class="fu">grep</span> [OPT] FILE</a></code></pre></div>
+<table>
+<tbody>
+<tr class="odd">
+<td><code>-c</code></td>
+<td>Display the number of matched lines</td>
+</tr>
+<tr class="even">
+<td><code>-i</code></td>
+<td>Ignore case sensitiviy.</td>
+</tr>
+<tr class="odd">
+<td><code>-l</code></td>
+<td>Display the filenames</td>
+</tr>
+<tr class="even">
+<td><code>-n</code></td>
+<td>Display the line numbers</td>
+</tr>
+<tr class="odd">
+<td><code>-w</code></td>
+<td>Match whole word</td>
+</tr>
+</tbody>
+</table>
+</section></section>
+<section><section id="terminal-key-bindings" class="title-slide slide level1"><h1>Terminal Key-bindings</h1></section><section id="tips-tricks" class="slide level2">
+<h2>Tips &amp; Tricks</h2>
+<ul>
+<li class="fragment"><code>clear</code> or <strong><code>CTRL</code></strong> + <strong><code>L</code></strong></li>
+<li class="fragment">Browse history with <strong><code>↑</code></strong> and <strong><code>↓</code></strong></li>
+<li class="fragment">search reverse with <strong><code>CTRL</code></strong> + <strong><code>R</code></strong></li>
+</ul>
+<aside class="notes">
+You can mention the <strong><code>TAB</code></strong> completion,
+</aside>
+</section><section id="ctrl-key-combination" class="slide level2">
+<h2><strong><code>CTRL</code></strong> <strong>Key</strong> Combination</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><strong><code>CTRL</code></strong>+<strong><code>C</code></strong></td>
+<td>Kill process</td>
+</tr>
+<tr class="even">
+<td><strong><code>CTRL</code></strong>+<strong><code>Z</code></strong></td>
+<td>Suspend process</td>
+</tr>
+<tr class="odd">
+<td><strong><code>CTRL</code></strong>+<strong><code>D</code></strong></td>
+<td>End of file</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<p><kbd>Ctrl</kbd>+<kbd>D</kbd> (<code>^D</code>) means <a href="http://en.wikipedia.org/wiki/Control-D#Meaning_in_Unix">end of file</a>. It only works at the beginning of a line (I’m simplifying a little), and has no effect if the program isn’t reading input from the terminal. In your experiment, <code>^D</code> told the shell that you weren’t going to type any more commands, so it exited; then the terminal exited because its subprogram had terminated.</p>
+<p><kbd>Ctrl</kbd>+<kbd>C</kbd> (<code>^C</code>) means “interrupt”, i.e., stop what you’re doing. Technically, pressing <code>^C</code> sends the <a href="http://en.wikipedia.org/wiki/SIGINT_%28POSIX%29">INT signal</a>, which by default terminates an application, but which in many programs means go back to the top level (e.g., in a shell, stop typing a command line and go back to a pristine prompt).</p>
+Another key that sends a signal is <kbd>Ctrl</kbd>+<kbd>Z</kbd> (<code>^Z</code>). It sends the <a href="http://en.wikipedia.org/wiki/SIGTSTP">TSTP signal</a>, which pauses the program running in the foreground. (TSTP is short for “terminal stop”; it’s similar to <a href="http://en.wikipedia.org/wiki/SIGSTOP">STOP</a> but TSTP can be ignored whereas STOP cannot.) From the shell, you can resume that program’s execution with the <code>fg</code> command (resume in the foreground) or the <code>bg</code> command (resume in the background).
+</aside>
+</section></section>
+<section><section id="io-redirection-and-pipes" class="title-slide slide level1"><h1>I/O Redirection and pipes</h1></section><section id="what" class="slide level2">
+<h2>What</h2>
+<p>Redirect output and/or input.</p>
+</section><section id="output-redirection" class="slide level2">
+<h2>Output redirection</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><strong><code>&gt;</code></strong></td>
+<td><code>CMD &gt; FILE</code></td>
+<td>CMD is run and its output will overwrite the FILE</td>
+</tr>
+<tr class="even">
+<td><strong><code>&gt;&gt;</code></strong></td>
+<td><code>CMD &gt;&gt; FILE</code></td>
+<td>CMD is run and its output will be appended to the FILE</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb14-1" data-line-number="1">$ <span class="fu">cat</span> tmp.txt</a>
+<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="fu">file</span></a>
+<a class="sourceLine" id="cb14-3" data-line-number="3"><span class="ex">tmp</span></a>
+<a class="sourceLine" id="cb14-4" data-line-number="4">$ <span class="bu">echo</span> <span class="st">&quot;hello&quot;</span> <span class="op">&gt;</span> tmp.txt</a>
+<a class="sourceLine" id="cb14-5" data-line-number="5">$ <span class="fu">cat</span> tmp.txt</a>
+<a class="sourceLine" id="cb14-6" data-line-number="6"><span class="ex">hello</span></a>
+<a class="sourceLine" id="cb14-7" data-line-number="7">$ <span class="bu">echo</span> <span class="st">&quot;bye&quot;</span> <span class="op">&gt;&gt;</span> tmp.txt</a>
+<a class="sourceLine" id="cb14-8" data-line-number="8">$ <span class="fu">cat</span> tmp.txt</a>
+<a class="sourceLine" id="cb14-9" data-line-number="9"><span class="ex">hello</span></a>
+<a class="sourceLine" id="cb14-10" data-line-number="10"><span class="ex">bye</span></a></code></pre></div>
+</section><section id="input-redirection" class="slide level2">
+<h2>Input redirection</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><strong><code>&lt;</code></strong></td>
+<td><code>CMD &lt; FILE</code></td>
+<td>CMD is run with FILE as its input</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb15-1" data-line-number="1">$ <span class="fu">cat</span> tmp.txt</a>
+<a class="sourceLine" id="cb15-2" data-line-number="2"><span class="fu">file</span></a>
+<a class="sourceLine" id="cb15-3" data-line-number="3">$ <span class="fu">grep</span> <span class="st">&quot;tmp&quot;</span> <span class="op">&lt;</span> tmp.txt</a>
+<a class="sourceLine" id="cb15-4" data-line-number="4"><span class="ex">tmp</span></a></code></pre></div>
+</section><section id="pipe-operator" class="slide level2">
+<h2>Pipe operator</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><strong><code>|</code></strong></td>
+<td><code>CMD_1 | CMD_2</code></td>
+<td>CMD_2 is run with CMD_1’s output as input</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb16-1" data-line-number="1">$ <span class="fu">ls</span> -al <span class="kw">|</span> <span class="fu">grep</span> *.hs</a>
+<a class="sourceLine" id="cb16-2" data-line-number="2"><span class="ex">-rw-rw-r--</span>  1 herulume herulume  229 Oct  4 14:11 quicksort.hs</a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="fu">ls</span> -al <span class="op">&gt;</span> temp_file <span class="kw">&amp;&amp;</span> <span class="fu">grep</span> *.hs <span class="op">&lt;</span> temp_file</a></code></pre></div>
+</section><section id="wildcards" class="slide level2">
+<h2>Wildcards</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><code>*</code></td>
+<td>Any number of characters</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>?</code></td>
+<td>Any single of characters</td>
+</tr>
+</tbody>
+</table>
+</section></section>
+<section><section id="package-managers" class="title-slide slide level1"><h1>Package Managers</h1></section><section id="what-are-they" class="slide level2">
+<h2>What are they?</h2>
+<p>Automate the process of installing, upgrading, configuring, and removing software.</p>
+</section><section id="advanced-package-tool" class="slide level2">
+<h2>Advanced Package Tool</h2>
+</section><section id="update" class="slide level2">
+<h2>Update</h2>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="ex">apt</span> update</a></code></pre></div>
+</section><section id="upgrade" class="slide level2">
+<h2>Upgrade</h2>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="fu">sudo</span> apt upgrade</a></code></pre></div>
+</section><section id="find-a-package" class="slide level2">
+<h2>Find a Package</h2>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="ex">apt</span> search NAME</a></code></pre></div>
+</section><section id="install-remove" class="slide level2">
+<h2>Install / Remove</h2>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="fu">sudo</span> apt install PACKAGE</a></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="fu">sudo</span> apt remove PACKAGE</a></code></pre></div>
+</section><section id="show-upgradable" class="slide level2">
+<h2>Show upgradable</h2>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="ex">apt</span> list --upgradable</a></code></pre></div>
+</section><section id="remove-orphans" class="slide level2">
+<h2>Remove orphans</h2>
+<div class="sourceCode" id="cb24"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="ex">apt</span> autoremove</a></code></pre></div>
+</section><section id="other-distros" class="slide level2">
+<h2>Other distros</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Arch</strong></td>
+<td><code>pacman</code>*</td>
+</tr>
+<tr class="even">
+<td><strong>Fedora</strong></td>
+<td><code>dnf</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>*a bit less verbose to use</p>
+</blockquote>
+</section></section>
+<section><section id="network-downloader" class="title-slide slide level1"><h1>Network Downloader</h1></section><section id="the-non-interactive-network-downloader." class="slide level2">
+<h2>The non-interactive network downloader.</h2>
+<div class="sourceCode" id="cb25"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb25-1" data-line-number="1">$ <span class="fu">wget</span> [OPT] [URL]</a></code></pre></div>
+<table>
+<tbody>
+<tr class="odd">
+<td><code>-q</code></td>
+<td>Quit mode.</td>
+</tr>
+<tr class="even">
+<td><code>-O</code></td>
+<td>Display contents on STDOUT, instead of creating a file.</td>
+</tr>
+</tbody>
+</table>
+</section><section id="curl" class="slide level2">
+<h2>cURL</h2>
+<div class="sourceCode" id="cb26"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb26-1" data-line-number="1">$ <span class="ex">curl</span> [OPT] [URL]</a></code></pre></div>
+<table>
+<tbody>
+<tr class="odd">
+<td><code>-o &lt;file&gt;</code></td>
+<td>Write output to &lt;<em>file</em>&gt; instead of STDOUT.</td>
+</tr>
+<tr class="even">
+<td><code>--create-dirs</code></td>
+<td>To be used in combination of <code>-o</code>.</td>
+</tr>
+<tr class="odd">
+<td><code>-s</code></td>
+<td>Silent or quiet mode. Don’t show progress meter or error messages.</td>
+</tr>
+</tbody>
+</table>
+</section></section>
+<section><section id="ghc-ghci" class="title-slide slide level1"><h1>GHC / GHCI</h1></section><section id="what-are-they-1" class="slide level2">
+<h2>What are they?</h2>
+<ul>
+<li class="fragment">The (Glorious)/Glasgow Haskell Compiler</li>
+<li class="fragment">The (Glorious)/Glasgow Haskell Compiler Interpreter</li>
+</ul>
+</section><section id="ghc" class="slide level2">
+<h2>GHC</h2>
+<div class="sourceCode" id="cb27"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="ex">ghc</span> FILE.hs</a></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb28-1" data-line-number="1"><span class="ex">ghc</span> -Wall FILE.hs -o li1</a></code></pre></div>
+</section><section id="ghci" class="slide level2">
+<h2>GHCI</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><code>:type</code></td>
+<td><code>:t</code></td>
+<td>Type</td>
+</tr>
+<tr class="even">
+<td><code>:info</code></td>
+<td><code>:i</code></td>
+<td>Docs</td>
+</tr>
+<tr class="odd">
+<td><code>:load</code></td>
+<td><code>:l</code></td>
+<td>Load file</td>
+</tr>
+<tr class="even">
+<td><code>:set</code></td>
+<td></td>
+<td>Set confg</td>
+</tr>
+</tbody>
+</table>
+</section></section>
+<section id="questions" class="title-slide slide level1"><h1>Questions?</h1></section>
+    </div>
+  </div>
+
+  <script src="js/revealjs/lib/js/head.min.js"></script>
+  <script src="js/revealjs/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        keyboard: true,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'js/revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'js/revealjs/plugin/zoom-js/zoom.js', async: true },
+          { src: 'js/revealjs/socket.io/socker.io.js', async: true },
+          { src: 'js/revealjs/plugin/notes-server/client.js', async: true },
+          { src: 'js/revealjs/plugin/math/math.js', async: true },
+          { src: 'js/revealjs/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
