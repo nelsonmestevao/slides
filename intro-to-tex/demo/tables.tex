@@ -1,0 +1,53 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{multirow}
+
+\begin{document}
+
+\begin{tabular}{c|ccc}
+  $x$ & 1 & 2 & 3 \\ \hline
+  $f(x)$ & 1 & 4 & 6
+\end{tabular}
+
+\begin{table}[h]
+  \centering
+  \caption{Estimações OLS}\label{table:estimations_table}
+
+  \begin{tabular}{lcccccccc}
+  \hline
+
+  \noalign{\smallskip}
+  \multirow{2}{*}{VARIÁVEIS} & (14) & (22) & (31) & (34) & (42) & (44) & (48) & (72) \\
+                             & lnhw & lnhw & lnhw & lnhw & lnhw & lnhw & lnhw & lnhw \\
+  \noalign{\smallskip}
+
+  \hline
+
+  \noalign{\smallskip}
+  Mestrado     & 0.003 & -0.020 & 0.052 & 0.075 & 0.097 & -0.036 & 0.015 & 0.100 \\
+  &\begin{scriptsize}(0.023)\end{scriptsize} &\begin{scriptsize}(0.028)\end{scriptsize} &\begin{scriptsize}(0.015)**\end{scriptsize} & \begin{scriptsize}(0.010)**\end{scriptsize} & \begin{scriptsize}(0.032)**\end{scriptsize} & \begin{scriptsize}(0.040)\end{scriptsize} & \begin{scriptsize}(0.014)\end{scriptsize} & \begin{scriptsize}(0.012)**\end{scriptsize}\\
+  Doutoramento & 0.196 & 0.356 & 0.217 & 0.026 & 0.448 & 0.698 & 0.127 & 0.146 \\
+  & \begin{scriptsize}(0.048)**\end{scriptsize} &\begin{scriptsize}(0.076)**\end{scriptsize} & \begin{scriptsize}(0.062)**\end{scriptsize} & \begin{scriptsize}(0.050)\end{scriptsize} & \begin{scriptsize}(0.061)**\end{scriptsize} & \begin{scriptsize}(0.094)**\end{scriptsize} & \begin{scriptsize}(0.091)\end{scriptsize} & \begin{scriptsize}(0.033)**\end{scriptsize}\\
+  Sexo         & -0.126 & -0.031 & -0.144 & -0.128 & -0.118 & -0.086 & -0.075 & -0.059 \\
+  & \begin{scriptsize}(0.014)**\end{scriptsize} &\begin{scriptsize}(0.018)\end{scriptsize} & \begin{scriptsize}(0.009)**\end{scriptsize} & \begin{scriptsize}(0.006)**\end{scriptsize} & \begin{scriptsize}(0.022)**\end{scriptsize} & \begin{scriptsize}(0.024)**\end{scriptsize} & \begin{scriptsize}(0.011)**\end{scriptsize} & \begin{scriptsize}(0.005)**\end{scriptsize}\\
+  Ln Volume    & 0.026 & 0.040 & 0.044 & 0.060 & 0.051 & 0.043 & 0.061 & 0.043 \\
+  & \begin{scriptsize}(0.002)**\end{scriptsize} &\begin{scriptsize}(0.002)**\end{scriptsize} & \begin{scriptsize}(0.001)**\end{scriptsize}& \begin{scriptsize}(0.001)**\end{scriptsize} & \begin{scriptsize}(0.004)**\end{scriptsize} & \begin{scriptsize}(0.004)**\end{scriptsize} & \begin{scriptsize}(0.002)**\end{scriptsize} & \begin{scriptsize}(0.001)**\end{scriptsize}\\
+  Constante    & 1.722 & 1.355 & 1.413 & 1.159 & 1.331 & 1.447 & 1.211 & 1.415 \\
+  & \begin{scriptsize}(0.031)**\end{scriptsize} &\begin{scriptsize}(0.043)**\end{scriptsize} & \begin{scriptsize}(0.021)**\end{scriptsize} & \begin{scriptsize}(0.015)**\end{scriptsize}  & \begin{scriptsize}(0.065)**\end{scriptsize}  & \begin{scriptsize}(0.069)**\end{scriptsize} & \begin{scriptsize}(0.030)**\end{scriptsize} & \begin{scriptsize}(0.015)**\end{scriptsize}\\
+
+  \noalign{\smallskip}
+  \noalign{\smallskip}
+
+  $R^2$ & 0.04 & 0.07 & 0.15 & 0.20 & 0.09 & 0.10 & 0.13 & 0.11 \\
+  $N$ & 7,899 & 4,119 & 11,341 & 24,832 & 2,607 & 1,654 & 7,324 & 23,746 \\
+
+  \noalign{\smallskip}
+  \hline
+  \noalign{\smallskip}
+
+  \multicolumn{9}{l}{\begin{footnotesize} \emph{Notas}: As áreas referentes a cada coluna podem ser consultadas no Apêndice. Os Erros \end{footnotesize}} \\
+  \multicolumn{9}{l}{\begin{footnotesize}padrão encontram-se em parênteses. \emph{Fonte}: Cálculos dos autores.  * $p<0$.05; ** $p<0$.01\end{footnotesize}} \\
+
+  \end{tabular}
+  \end{table}
+   
+\end{document}

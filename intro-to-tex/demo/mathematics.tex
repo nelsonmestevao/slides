@@ -1,0 +1,44 @@
+\documentclass[12pt,a4paper]{article}
+
+\begin{document}
+
+greek letters:
+$$\pi \approx 3.1415$$
+$$\alpha + \beta$$
+$$\varepsilon > 0$$
+
+trigonometric functions:
+$$\sin^2{x} + \cos^2{x} = 1$$
+$$\tan{x} = \frac{\sin{x}}{\cos{x}}$$
+
+log functions:
+$$\log{x}$$
+$$\log_2{x}$$
+$$\ln{x}$$
+
+square root:
+$$\varphi=\frac{1 +\sqrt{5}}{2}$$
+$$\sqrt[3]{8}=2$$
+
+About $\displaystyle{\frac{2}{3}}$ of {\LaTeX} is fun. There is a problem
+with brackets that you can solve with escape $\{a,b,c\}$. Other types of problems are the small brackets. $\displaystyle{3\left(\frac{2}{3}\right) = 2}$.
+
+%https://www.johndcook.com/blog/2009/09/14/latex-multi-part-definitions/
+$$
+|x| =
+\left\{
+  \begin{array}{rr}
+    %https://texblog.org/2012/09/24/normal-text-in-math-mode/
+		x,  & \textrm{se } x \geq 0 \\
+		-x, & x < 0
+	\end{array}
+\right.
+$$
+
+\begin{eqnarray*}
+x^2+x-4&=&x \\
+x^2 &=&4 \\
+x &=& \pm 2 
+\end{eqnarray*}
+
+\end{document}

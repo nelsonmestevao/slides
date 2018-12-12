@@ -1,0 +1,35 @@
+\documentclass[11pt,a4paper]{article}
+%https://texblog.org/2008/10/16/lists-enumerate-itemize-description-and-how-to-change-them/
+\usepackage{enumerate}
+
+\begin{document}
+
+\begin{enumerate}[(a)]
+  \item pencil
+  \item notebook
+    \begin{enumerate}
+      \item homework
+      \item notes
+    \end{enumerate}
+  \item ruler \ldots
+\end{enumerate}
+
+\begin{itemize}
+  \item pencil
+  \item notebook
+    \begin{enumerate}
+      \item homework
+      \item notes
+    \end{enumerate}
+  \item ruler
+\end{itemize}
+
+The adition is:
+
+\begin{enumerate}
+\item[Commutative] $a+b=b+a$
+\item[Asssociative] $(a+b)+c=a+(b+c)$
+\item[Distributive] $a(b+c)=ab+ac$
+\end{enumerate}
+
+\end{document}

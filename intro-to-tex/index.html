@@ -1,0 +1,375 @@
+<!doctype html>
+<html>
+
+  
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Intro to TeX</title>
+
+  <link rel="stylesheet" href="assets/css/reveal.css">
+  <link rel="stylesheet" href="assets/css/theme/myplanet.css">
+  <link rel="stylesheet" href="assets/css/presentation.css">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="assets/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'assets/css/print/pdf.css' : 'assets/css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+</head>
+
+
+  <body>
+
+    <div class="reveal pattern--orange-river">
+      <div class="slides">
+
+    
+    
+<section class="intro" id="intro">
+  <div class="logo-wrapper">
+    <div class="logo"><span class="visually-hidden">CeSIUM - Centro de Estudantes de Engenharia Informática</span></div>
+  </div>
+</section>
+
+
+    <section class="title" id="title">
+  <div class="grid-wrapper">
+    <div class="header">
+      <div class="logo logo--full"><span class="visually-hidden">cesium</span></div>
+    </div>
+    <div class="content">
+      <h1>Introduction to <embed type="image/svg+xml" src="assets/img/LaTeX/logo-white.svg" /></h1>
+      <div class="description">
+         LaTeX is a document preparation system for the TeX typesetting program.
+      </div>
+    </div>
+    <div class="credit">
+      <hr />
+      <div class="label">Presented By</div>
+      <div class="name">Nelson Estevão</div>
+      <div class="role">@nelsonmestevao</div>
+    </div>
+  </div>
+</section>
+
+
+    
+<section class="color--midnight team" id="creators">
+  <div class="grid-wrapper">
+    <div class="header">
+      <!-- <div class="logo"></div> -->
+      <!-- <div class="section">Section</div> -->
+    </div>
+    <div class="content">
+      <div class="profile">
+        <div class="basics">
+          <img src="assets/img/LaTeX/Donald_Knuth.jpg" />
+          <div class="name">Donald Knuth</div>
+          <div class="role">Creator of TeX</div>
+        </div>
+        <div class="details">
+          <p>
+            TeX is a typesetting system (or "formatting system") designed and mostly
+            written by Donald Knuth and released in 1978. Together with the
+            Metafont language for font description and the Computer Modern
+            family of typefaces, TeX was designed with two main goals in mind:
+            to allow anybody to produce high-quality books using minimal
+            effort, and to provide a system that would give exactly the same
+            results on all computers, at any point in time.
+          </p>
+          <p class="supplement">
+            TeX is free software, which made it accessible to a wide range of users.
+          </p>
+        </div>
+      </div>
+      <div class="profile">
+        <div class="basics">
+          <img src="assets/img/LaTeX/Leslie_Lamport.jpg" />
+          <div class="name">Leslie Lamport</div>
+          <div class="role">Creator of LaTeX</div>
+        </div>
+        <div class="details">
+          <!-- <h2>Profile</h2> -->
+          <p>LaTeX (shortening of Lamport TeX) is a document preparation
+          system. When writing, the writer uses plain text as opposed to the
+          formatted text found in WYSIWYG ("what you see is what you get")
+          word processors like Microsoft Word, LibreOffice Writer and Apple
+          Pages. The writer uses markup tagging conventions to define the
+          general structure of a document (such as article, book, and
+          letter), to stylise text throughout a document (such as bold and
+          italics), and to add citations and cross-references.</p>
+          <p class="supplement">A TeX distribution such as TeX Live or MikTeX
+          is used to produce an output file (such as PDF or DVI) suitable for
+          printing or digital distribution.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    
+<section id="what">
+
+  <img style="display: block; margin-top: 15vh; margin-left: auto; margin-right: auto; width: 60%;" src="assets/img/LaTeX/what-is-latex.png" />
+
+  <aside class="notes">
+    % https://academia.stackexchange.com/questions/5414/what-are-the-advantages-or-disadvantages-of-using-latex-for-writing-scientific-p
+    *Advantages*:
+    * Dealing with mathematical notation.
+    * Consistent handling of intra-document references and bibliography.
+    * Separation of content and style.
+    * Size files is much smaller.
+    * Allow you tu use version control (e.g. git, mercurial, subversion).
+    * It's somewhat fun.
+  </aside>
+
+</section>
+
+
+    
+<section id="word">
+
+  <img style="display: block; margin-top: 10vh; margin-left: auto; margin-right: auto; width: 40%;" src="assets/img/LaTeX/latex-vs-word.png" />
+
+</section>
+
+
+    
+<section class="code color--dark" id="syntax">
+  <div class="grid-wrapper">
+    <!-- <div class="header"> -->
+      <!-- <div class="logo"></div> -->
+      <!-- <div class="section">Section</div> -->
+    <!-- </div> -->
+    <div style="max-width: 1080px; margin: 300px auto;">
+    <figure class="code">
+
+      <pre><code class="lang-tex" style="font-size: 50px; margin: auto;">
+      <div></div>
+
+      \command[options]{argument}
+
+      <div></div>
+      <div></div>
+      </code></pre>
+
+    </figure>
+    </div>
+  </div>
+</section>
+
+
+    
+<section class="code color--dark" id="document">
+  <div class="grid-wrapper">
+    <div class="header">
+      <!-- <div class="logo"></div> -->
+      <!-- <div class="section">Section</div> -->
+    </div>
+    <figure class="code">
+
+      <pre><code class="lang-tex">
+
+       ├── \documentclass{article}
+       │
+       │  % preamble
+       │
+       ├── \begin{document}
+       │
+       │
+       │  % body
+       │
+       └── \end{document}
+        
+      </code></pre>
+
+      <figcaption class="path">/CeSIUM/LaTeX/src/introduction.tex</figcaption>
+
+    </figure>
+  </div>
+</section>
+
+
+    
+<section class="subsection color--ice" id="intallation">
+  <div class="grid-wrapper">
+    <!-- <div class="logo"></div> -->
+    <h1>Installation vs Web Editor</h1>
+    <div class="description">
+      Deal with your choice.
+    </div>
+  </div>
+</section>
+
+
+    
+<section id="windows">
+  <div class="grid-wrapper">
+    <!-- <div class="logo"></div> -->
+    <h1>Windows</h1>
+    <div data-markdown="" class="content" style="margin: auto; width: 900px;">
+        [![miktex](assets/img/LaTeX/miktex.png)](https://miktex.org/)
+    </div>
+  </div>
+</section>
+
+
+    
+<section id="macOS">
+  <div class="grid-wrapper">
+    <!-- <div class="logo"></div> -->
+    <h1>macOS</h1>
+    <div data-markdown="" class="content" style="margin: auto; transform: scale(2, 2);">
+        [![mactex](assets/img/LaTeX/mactex.png)](http://www.tug.org/mactex/)
+    </div>
+  </div>
+</section>
+
+
+    
+<section id="linux">
+  <div class="grid-wrapper">
+    <!-- <div class="logo"></div> -->
+    <h1>Linux</h1>
+    <div data-markdown="" class="content" style="margin: auto; width: 800px;">
+        [![texlive](assets/img/LaTeX/texlive.png)](https://www.tug.org/texlive/)
+    </div>
+  </div>
+</section>
+
+
+    
+<section id="editor">
+  <div class="grid-wrapper">
+    <!-- <div class="logo"></div> -->
+    <h1>Text Editor</h1>
+    <div data-markdown="" class="content" style="margin: auto;">
+        [![textstudio](assets/img/LaTeX/texstudio.png)](https://www.texstudio.org/)
+    </div>
+  </div>
+</section>
+
+
+    
+<section id="webeditor">
+  <div class="grid-wrapper">
+    <!-- <div class="logo"></div> -->
+    <h1>Web Editor</h1>
+    <div data-markdown="" class="content" style="margin: auto;">
+        [![overleaf](assets/img/LaTeX/overleaf.png)](https://www.overleaf.com)
+    </div>
+  </div>
+</section>
+
+
+    
+<section class="quote color--midnight" id="demo">
+  <div class="grid-wrapper">
+    <!-- <div class="logo"></div> -->
+    <div class=""></div>
+    <blockquote>
+      <p>
+      DEMO
+      </p>
+      <hr />
+    </blockquote>
+  </div>
+</section>
+
+
+    
+<section id="references">
+  <div class="grid-wrapper">
+    <!-- <div class="logo"></div> -->
+    <h1>References</h1>
+    <div data-markdown="" class="description">
+      &lt;https://www.latex-project.org/&gt;
+      
+      &lt;https://ctan.org/&gt; 
+
+      &lt;https://tex.stackexchange.com&gt;
+
+      &lt;http://tug.ctan.org/info/lshort/&gt;
+    </div>
+  </div>
+</section>
+
+
+    
+<section class="end color--radiant" id="questions">
+  <div class="logo-wrapper">
+    <div class="logo"><span class="visually-hidden">CeSIUM - Centro de Estudantes de Engenharia Informática</span></div>
+  </div>
+</section>
+
+
+
+
+      </div>
+    </div>
+
+  
+<script src="assets/js/head.min.js"></script>
+<script src="assets/js/reveal.js"></script>
+
+<script>
+  // More info about config & dependencies:
+  // - https://github.com/hakimel/reveal.js#configuration
+  // - https://github.com/hakimel/reveal.js#dependencies
+  Reveal.initialize({
+    center: false,
+    width: "100%",
+    height: "100%",
+    margin: 0,
+    minScale: 1,
+    maxScale: 1,
+    history: true,
+    dependencies: [{
+        src: 'assets/plugin/markdown/marked.js'
+      },
+      {
+        src: 'assets/plugin/markdown/markdown.js'
+      },
+      {
+        src: 'assets/plugin/notes/notes.js',
+        async: true
+      },
+      {
+        src: 'assets/plugin/highlight/highlight.js',
+        async: true,
+        condition: function () {
+          // Trim whitespace from code blocks, and prevent HTML escaping by default.
+          // This must be done before the plugin is loaded.
+          Array.prototype.forEach.call(
+            document.querySelectorAll('pre code'),
+            function (element) {
+              if (!element.hasAttribute('data-notrim')) {
+                element.setAttribute('data-trim', '');
+              }
+              if (!element.hasAttribute('data-escape')) {
+                element.setAttribute('data-noescape', '');
+              }
+            }
+          );
+          return true;
+        },
+        callback: function () {
+          hljs.initHighlightingOnLoad();
+        }
+      }
+    ]
+  });
+</script>
+
+
+  </body>
+</html>
