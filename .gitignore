@@ -5,3 +5,5 @@ FUT
 .brackets.json
 kramdown
 .jekyll-metadata
+# Local Netlify folder
+.netlify
